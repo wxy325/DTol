@@ -18,10 +18,8 @@ public:
     QLineEdit* inputWidget;
     QPushButton* sendButton;
 
-
-
-
 signals:
+
 
 public slots:
     void sendMessage();
