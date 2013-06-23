@@ -4,7 +4,10 @@
 class DataModel
 {
 public:
+    static DataModel* shareDataModel();
+private:
     DataModel();
+
 };
 
 #endif // DATAMODEL_H

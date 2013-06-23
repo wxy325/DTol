@@ -1,6 +1,7 @@
 #include "datamodel.h"
 #include <stdlib.h>
 static DataModel* s_DataModel;
+
 DataModel::DataModel()
 {
 
