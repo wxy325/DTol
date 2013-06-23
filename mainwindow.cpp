@@ -7,6 +7,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QToolBar>
+#include <QColorDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -44,7 +45,9 @@ void MainWindow::createAction()
 
     //Draw Actions
     this->chooseFillColorAction = new QAction(tr("Fill Color"),this);
+    connect(this->chooseFillColorAction,SIGNAL(triggered()),this,SLOT(chooseFillColor()));
     this->chooseStrokeColorAction = new QAction(tr("Stroke Color"),this);
+    connect(this->chooseStrokeColorAction,SIGNAL(triggered()),this,SLOT(chooseStrokeColor()));
 }
 
 void MainWindow::createMenuBar()
@@ -63,8 +66,22 @@ void MainWindow::createMenuBar()
     this->drawMenu = menuBar()->addMenu(tr("Draw"));
     this->drawMenu->addAction(this->chooseStrokeColorAction);
     this->drawMenu->addAction(this->chooseFillColorAction);
+
 }
 
+
+void MainWindow::chooseStrokeColor()
+{
+    QColor color = QColorDialog::getColor(Qt::white,this,tr("Choose Stroke Color"));
+    this->strokeColor = color;
+
+}
+void MainWindow::chooseFillColor()
+{
+    QColor color = QColorDialog::getColor(Qt::white,this,tr("Choose Stroke Color"));
+    this->fillColor = color;
+
+}
 //void MainWindow::resizeEvent(QResizeEvent* event)
 //{
 

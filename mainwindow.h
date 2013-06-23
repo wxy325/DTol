@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QColor>
 
 class PainterWidget;
 class ChatWidget;
@@ -36,6 +37,13 @@ private:
     QAction *chooseStrokeColorAction;
     QAction * chooseFillColorAction;
 
+    //Color
+    QColor strokeColor;
+    QColor fillColor;
+
+public slots:
+    void chooseStrokeColor();
+    void chooseFillColor();
 };
 
 #endif // MAINWINDOW_H
