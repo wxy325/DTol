@@ -17,6 +17,7 @@ ChatWidget::ChatWidget(QWidget *parent) :
     sendButton(new QPushButton(this))
 {
 //    QSplitter* splitter = new QSplitter(Qt::Vertical);
+    this->sendButton->setText(QString("发送"));
     this->messageView->setReadOnly(true);
     QVBoxLayout* layout = new QVBoxLayout();
     layout->addWidget(this->messageView);

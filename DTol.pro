@@ -17,10 +17,12 @@ SOURCES += main.cpp\
     painterwidget.cpp \
     chatwidget.cpp \
     datamodel.cpp \
-    point.cpp
+    point.cpp \
+    shape.cpp
 
 HEADERS  += mainwindow.h \
     painterwidget.h \
     chatwidget.h \
     datamodel.h \
-    point.h
+    point.h \
+    shape.h

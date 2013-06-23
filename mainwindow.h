@@ -6,6 +6,9 @@
 class PainterWidget;
 class ChatWidget;
 
+class QMenu;
+class QAction;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -16,6 +19,22 @@ public:
 private:
     PainterWidget* painterWidget;
     ChatWidget* chatWidget;
+
+
+    //MenuBar
+    void createMenuBar();
+    void createAction();
+    QMenu *fileMenu;
+    QAction* saveAction;
+
+    QMenu *connectMenu;
+    QAction* connectAction;
+    QAction* disconnectAction;
+    QAction* waitForConnectAction;
+
+    QMenu *drawMenu;
+    QAction *chooseStrokeColorAction;
+    QAction * chooseFillColorAction;
 
 };
 
