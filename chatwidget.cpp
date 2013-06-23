@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QSplitter>
 #include <string>
+#include <QTextCursor>
 #include "datamodel.h"
 
 using namespace std;
@@ -46,6 +47,13 @@ void ChatWidget::addMessageToBrowser(string &string)
     }
     preMessage.append(qStr);
     this->messageView->setText(preMessage);
+    this->scrollMessageViewToBottom();
+}
+void ChatWidget::scrollMessageViewToBottom()
+{
+    QTextCursor cursor = this->messageView->textCursor();
+    cursor.movePosition(QTextCursor::End);
+    this->messageView->setTextCursor(cursor);
 }
 
 //ChatWidget::~ChatWidget()

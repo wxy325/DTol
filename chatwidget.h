@@ -27,6 +27,7 @@ public slots:
     void sendMessage();
 private:
     void addMessageToBrowser(std::string& string);
+    void scrollMessageViewToBottom();
 };
 
 #endif // CHATWIDGET_H
