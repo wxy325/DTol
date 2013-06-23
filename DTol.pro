@@ -13,6 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    painterwidget.cpp \
+    chatwidget.cpp \
+    datamodel.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    painterwidget.h \
+    chatwidget.h \
+    datamodel.h
