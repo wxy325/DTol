@@ -2,8 +2,9 @@
 #define PAINTERWIDGET_H
 
 #include <QWidget>
+#include <shape.h>
+#include <QColor>
 
-class Shape;
 class PainterWidget : public QWidget
 {
     Q_OBJECT
@@ -21,9 +22,23 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
 
+    const QColor& getCurrentStrokeColor() const{return this->currentStrokeColor;}
+    const QColor& getCurrentFillColor() const {return this->currentFillColor;}
+    void setCurrentStrokeColor(const QColor& color){this->currentStrokeColor = color;}
+    void setCurrentFillColor(const QColor& color){this->currentFillColor = color;}
+
 private :
     Shape* currentShape;
+
+    ShapeType currentType;
+
+    QColor currentStrokeColor;
+    QColor currentFillColor;
+
     bool fDraw;
+
+
+
     
 };
 

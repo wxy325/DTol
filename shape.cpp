@@ -37,21 +37,21 @@ vector<QPoint>& Shape::getPoints()
 
 
 //Draw Method
-void Shape::draw(const QPainter& painter) const
+void Shape::draw(QPainter& painter) const
 {
     QBrush fillBrush = QBrush(this->fillColor);
     painter.setBrush(fillBrush);
-    painter.setColor(this->strokeColor);
+    painter.setPen(this->strokeColor);
 
     this->drawShape(painter);
 }
 
-void Shape::drawPreview(const QPainter& painter)
+void Shape::drawPreview(QPainter& painter) const
 {
 
 }
 
-void Shape::drawShape(const QPainter& painter)
+void Shape::drawShape(QPainter& painter) const
 {
     switch (this->type)
     {

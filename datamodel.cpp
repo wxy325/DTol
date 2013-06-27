@@ -16,11 +16,10 @@ DataModel* DataModel::shareDataModel()
 }
 
 DataModel::DataModel()
-    :allShapes(Vector<Shape*>())
+    :allShapes(vector<Shape*>())
 {
 
 }
-
 
 
 void DataModel::sendMessage(string message)
@@ -37,4 +36,19 @@ DataModel::~DataModel()
             delete allShapes[i];
         }
     }
+}
+
+//Shape
+void DataModel::drawAllShape(QPainter& painter)
+{
+    for (int i = 0; i < this->allShapes.size(); i++)
+    {
+        Shape* shape = this->allShapes[i];
+        shape->draw(painter);
+    }
+}
+
+void DataModel::addShape(Shape* shape)
+{
+    this->allShapes.push_back(shape);
 }
