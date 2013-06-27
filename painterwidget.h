@@ -16,6 +16,8 @@ public:
     void setCurrentStrokeColor(const QColor& color){this->currentStrokeColor = color;}
     void setCurrentFillColor(const QColor& color){this->currentFillColor = color;}
 
+    ShapeType getCurrentType(){return this->currentType;}
+    void setCurrentType(ShapeType t){this->currentType = t;}
 signals:
     
 public slots:
@@ -35,9 +37,6 @@ private :
     QColor currentFillColor;
 
     bool fDraw;
-
-
-
     
 };
 

@@ -25,17 +25,26 @@ private:
     //MenuBar
     void createMenuBar();
     void createAction();
+    //File
     QMenu *fileMenu;
     QAction* saveAction;
 
+    //Connect
     QMenu *connectMenu;
     QAction* connectAction;
     QAction* disconnectAction;
     QAction* waitForConnectAction;
 
+    //Draw
     QMenu *drawMenu;
+    //Choose Color
     QAction *chooseStrokeColorAction;
     QAction * chooseFillColorAction;
+    //Choose Shape
+    QAction *chooseShapeArbiLineAction;
+    QAction *chooseShapeLineAction;
+    QAction *chooseShapeRectAction;
+    QAction *chooseShapeEllipseAction;
 
     //Color
     QColor strokeColor;
@@ -44,6 +53,11 @@ private:
 public slots:
     void chooseStrokeColor();
     void chooseFillColor();
+
+    void chooseShapeArbiLine();
+    void chooseShapeLine();
+    void chooseShapeRect();
+    void chooseShapeEllipse();
 };
 
 #endif // MAINWINDOW_H
