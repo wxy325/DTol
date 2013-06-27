@@ -73,13 +73,15 @@ void MainWindow::createMenuBar()
 void MainWindow::chooseStrokeColor()
 {
     QColor color = QColorDialog::getColor(Qt::white,this,tr("Choose Stroke Color"));
-    this->strokeColor = color;
+//    this->strokeColor = color;
+    this->painterWidget->setCurrentStrokeColor(color);
 
 }
 void MainWindow::chooseFillColor()
 {
     QColor color = QColorDialog::getColor(Qt::white,this,tr("Choose Stroke Color"));
-    this->fillColor = color;
+//    this->fillColor = color;
+    this->painterWidget->setCurrentFillColor(color);
 
 }
 //void MainWindow::resizeEvent(QResizeEvent* event)
