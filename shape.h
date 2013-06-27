@@ -2,11 +2,14 @@
 #define SHAPE_H
 #include <vector>
 #include <QColor>
+#include <QPoint>
 
 enum ShapeType{
+    ShapeTypeArbiLine,  //任意线,任意点
     ShapeTypeLine,  //直线,2点
     ShapeTypeRect,  //矩形,2点
     ShapeTypeEllipse    //椭圆,2点
+
 };
 
 class Point;
@@ -19,9 +22,9 @@ public:
     QColor getFillColor();
     void setStrokeColor(QColor c);
     void setFillColor(QColor c);
-    std::vector<Point>& getPoints();
+    std::vector<QPoint>& getPoints();
 private:
-    std::vector<Point> points;
+    std::vector<QPoint> points;
     ShapeType type;
 
     QColor strokeColor;     //线条颜色

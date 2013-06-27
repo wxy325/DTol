@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+class Shape;
 class PainterWidget : public QWidget
 {
     Q_OBJECT
@@ -19,6 +20,10 @@ protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
+
+private :
+    Shape* currentShape;
+    bool fDraw;
     
 };
 
