@@ -18,11 +18,13 @@ SOURCES += main.cpp\
     chatwidget.cpp \
     datamodel.cpp \
     point.cpp \
-    shape.cpp
+    shape.cpp \
+    clock.cpp
 
 HEADERS  += mainwindow.h \
     painterwidget.h \
     chatwidget.h \
     datamodel.h \
     point.h \
-    shape.h
+    shape.h \
+    clock.h
