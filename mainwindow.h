@@ -37,14 +37,21 @@ private:
 
     //Draw
     QMenu *drawMenu;
+    QMenu *colorMenu;
+    QMenu *shapeMenu;
     //Choose Color
     QAction *chooseStrokeColorAction;
-    QAction * chooseFillColorAction;
+    QAction *chooseStrokeColorTransparentAction;
+    QAction *chooseFillColorAction;
+    QAction *chooseFillColorTransparentAction;
+
     //Choose Shape
     QAction *chooseShapeArbiLineAction;
     QAction *chooseShapeLineAction;
     QAction *chooseShapeRectAction;
     QAction *chooseShapeEllipseAction;
+
+    void uncheckAllShape();
 
     //Color
     QColor strokeColor;
@@ -53,6 +60,8 @@ private:
 public slots:
     void chooseStrokeColor();
     void chooseFillColor();
+    void chooseFillColorTransparent();
+    void chooseStrokeColorTransparent();
 
     void chooseShapeArbiLine();
     void chooseShapeLine();

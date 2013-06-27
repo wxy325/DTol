@@ -45,21 +45,37 @@ void MainWindow::createAction()
     this->disconnectAction = new QAction(tr("&Disconnect"),this);
     this->waitForConnectAction = new QAction(tr("&Wait For Connect"),this);
 
+
+
     //Draw Actions
     //Choose Color
     this->chooseFillColorAction = new QAction(tr("Fill Color"),this);
     connect(this->chooseFillColorAction,SIGNAL(triggered()),this,SLOT(chooseFillColor()));
+    this->chooseFillColorTransparentAction = new QAction(tr("Fill Color Transparent"),this);
+    connect(this->chooseFillColorTransparentAction,SIGNAL(triggered()),this,SLOT(chooseFillColorTransparent()));
+
     this->chooseStrokeColorAction = new QAction(tr("Stroke Color"),this);
     connect(this->chooseStrokeColorAction,SIGNAL(triggered()),this,SLOT(chooseStrokeColor()));
+    this->chooseStrokeColorTransparentAction = new QAction(tr("Stroke Color Transparent"),this);
+    connect(this->chooseStrokeColorTransparentAction,SIGNAL(triggered()),this,SLOT(chooseStrokeColorTransparent()));
+
     //Choose Shape
     this->chooseShapeArbiLineAction = new QAction(tr("Arbitrary Line"),this);
     connect(this->chooseShapeArbiLineAction ,SIGNAL(triggered()),this,SLOT(chooseShapeArbiLine()));
+    this->chooseShapeArbiLineAction->setCheckable(true);
+    this->chooseShapeArbiLineAction->setChecked(true);
+
     this->chooseShapeLineAction = new QAction(tr("Line"),this);
     connect(this->chooseShapeLineAction ,SIGNAL(triggered()),this,SLOT(chooseShapeLine()));
+    this->chooseShapeLineAction->setCheckable(true);
+
     this->chooseShapeRectAction = new QAction(tr("Rect"),this);
     connect(this->chooseShapeRectAction ,SIGNAL(triggered()),this,SLOT(chooseShapeRect()));
+    this->chooseShapeRectAction ->setCheckable(true);
+
     this->chooseShapeEllipseAction = new QAction(tr("Ellipse"),this);
     connect(this->chooseShapeEllipseAction ,SIGNAL(triggered()),this,SLOT(chooseShapeEllipse()));
+    this->chooseShapeEllipseAction->setCheckable(true);
 }
 
 void MainWindow::createMenuBar()
@@ -76,12 +92,16 @@ void MainWindow::createMenuBar()
 
     //Draw Menu
     this->drawMenu = menuBar()->addMenu(tr("Draw"));
-    this->drawMenu->addAction(this->chooseStrokeColorAction);
-    this->drawMenu->addAction(this->chooseFillColorAction);
-    this->drawMenu->addAction(this->chooseShapeArbiLineAction);
-    this->drawMenu->addAction(this->chooseShapeLineAction);
-    this->drawMenu->addAction(this->chooseShapeRectAction);
-    this->drawMenu->addAction(this->chooseShapeEllipseAction);
+    this->colorMenu = this->drawMenu->addMenu(tr("Color"));
+    this->colorMenu->addAction(this->chooseStrokeColorAction);
+    this->colorMenu->addAction(this->chooseFillColorAction);
+    this->colorMenu->addAction(this->chooseStrokeColorTransparentAction);
+    this->colorMenu->addAction(this->chooseFillColorTransparentAction);
+    this->shapeMenu = this->drawMenu->addMenu(tr("Shape"));
+    this->shapeMenu->addAction(this->chooseShapeArbiLineAction);
+    this->shapeMenu->addAction(this->chooseShapeLineAction);
+    this->shapeMenu->addAction(this->chooseShapeRectAction);
+    this->shapeMenu->addAction(this->chooseShapeEllipseAction);
 
 }
 
@@ -104,19 +124,45 @@ void MainWindow::chooseFillColor()
 void MainWindow::chooseShapeArbiLine()
 {
     this->painterWidget->setCurrentType(ShapeTypeArbiLine);
+    this->uncheckAllShape();
+    this->chooseShapeArbiLineAction->setChecked(true);
 }
 void MainWindow::chooseShapeLine()
 {
     this->painterWidget->setCurrentType(ShapeTypeLine);
+    this->uncheckAllShape();
+    this->chooseShapeLineAction->setChecked(true);
 }
 void MainWindow::chooseShapeRect()
 {
     this->painterWidget->setCurrentType(ShapeTypeRect);
+    this->uncheckAllShape();
+    this->chooseShapeRectAction->setChecked(true);
 }
 void MainWindow::chooseShapeEllipse()
 {
     this->painterWidget->setCurrentType(ShapeTypeEllipse);
+    this->uncheckAllShape();
+    this->chooseShapeEllipseAction->setChecked(true);
 }
+
+void MainWindow::uncheckAllShape()
+{
+    this->chooseShapeArbiLineAction->setChecked(false);
+    this->chooseShapeLineAction->setChecked(false);
+    this->chooseShapeRectAction->setChecked(false);
+    this->chooseShapeEllipseAction->setChecked(false);
+}
+
+void MainWindow::chooseFillColorTransparent()
+{
+    this->painterWidget->setCurrentFillColor(Qt::transparent);
+}
+void MainWindow::chooseStrokeColorTransparent()
+{
+    this->painterWidget->setCurrentStrokeColor(Qt::transparent);
+}
+
 //void MainWindow::resizeEvent(QResizeEvent* event)
 //{
 

@@ -23,8 +23,7 @@ void PainterWidget::paintEvent(QPaintEvent *event)
 {    
     QWidget::paintEvent(event);
 
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing, true);    //反走样
+    QPainter painter(this);    
     painter.setBrush(Qt::white);
     painter.drawRect(0, 0, size().width(), size().height());
 

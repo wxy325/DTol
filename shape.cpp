@@ -53,6 +53,7 @@ void Shape::drawPreview(QPainter& painter) const
 
 void Shape::drawShape(QPainter& painter) const
 {
+    painter.setRenderHint(QPainter::Antialiasing, true);    //反走样
     switch (this->type)
     {
     case ShapeTypeArbiLine:
